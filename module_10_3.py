@@ -34,7 +34,7 @@ class Bank():
                 print(f'Снятие {amount}. Текущий баланс: {self.balance}')
             else:
                 print(f'Запрос отклонен, недостаточно средств')
-                if not self.stop:self.lock.acquire()
+                if not self.stop:self.lock.acquire() # если поток deposit живой то блокировка
             tact_count-=1
             sleep(random()*0.001)
 
