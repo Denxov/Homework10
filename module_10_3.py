@@ -21,7 +21,7 @@ class Bank():
             tact_count -= 1
             sleep(random()*0.001)
         if self.lock.locked():self.lock.release()
-        self.stop=True
+        self.stop=True  # Пополнений больше не будет, блокировка приведет к зависанию
 
     def take(self):
         tact_count = 100
