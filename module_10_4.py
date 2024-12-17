@@ -20,4 +20,18 @@ class cafe():
         self.queue=Queue(maxsize=len(args))
 
     def guest_arrival(self,*guests:Guest):
-        self.queue.
+        for g in guests:
+            sit_avail=False
+            for i in range(len(self.tables)):
+                if self.tables[i]==None:
+                    self.tables[i]=g
+                    self.tables[i].start()
+                    self.tables[i].number=i+1
+                    sit_avail=True
+            if not sit_avail:self.queue.put(g)
+
+    def discuss_quests(self):
+        for i in range(len(self.tables)):
+            if self.tables[i]!= None and self.tables[i].guest.is_alive():
+                print(f'{self.tables[i].name} покушал и ушел Стол номер {self.tables[i].number} свободен')
+
