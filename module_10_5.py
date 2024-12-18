@@ -18,7 +18,7 @@ if __name__ == '__main__':
     for i in filenames:
         read_info(i)
 
-    print(datetime.now() - started)
+    print(f'        Линия: {datetime.now() - started}')
 
     started = datetime.now()
     process = []
@@ -26,5 +26,5 @@ if __name__ == '__main__':
         process.append(multiprocessing.Process(target=read_info, args=(filenames[i],)))
         process[i].start()
 
-    print(datetime.now() - started)
+    print(f'Мультипроцесс: {datetime.now() - started}')
     print(f'Over')
