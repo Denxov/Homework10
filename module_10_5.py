@@ -27,4 +27,3 @@ if __name__ == '__main__':
         process[i].start()
 
     print(f'Мультипроцесс: {datetime.now() - started}')
-    print(f'Over')
