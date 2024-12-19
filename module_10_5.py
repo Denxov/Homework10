@@ -28,5 +28,4 @@ if __name__ == '__main__':
 
     for i in process:
         i.join()
-
     print(f'Мультипроцесс: {datetime.now() - started}')
