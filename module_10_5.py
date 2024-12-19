@@ -26,4 +26,7 @@ if __name__ == '__main__':
         process.append(multiprocessing.Process(target=read_info, args=(filenames[i],)))
         process[i].start()
 
+    for i in process:
+        i.join()
+
     print(f'Мультипроцесс: {datetime.now() - started}')
